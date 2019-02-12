@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     public void animateButtons() {
-        for (int i = 1; i < 40; i++) {
+        for (int i = 1; i < 41; i++) {
             if (computerLotto.contains(i)) {
                 String buttonID = "button" + i;
 

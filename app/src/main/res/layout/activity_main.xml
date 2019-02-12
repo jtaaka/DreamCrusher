@@ -68,6 +68,7 @@
         <Button android:id="@+id/button37" android:onClick="buttonOnClick" style="@style/myButton" android:text="37"/>
         <Button android:id="@+id/button38" android:onClick="buttonOnClick" style="@style/myButton" android:text="38"/>
         <Button android:id="@+id/button39" android:onClick="buttonOnClick" style="@style/myButton" android:text="39"/>
+        <Button android:id="@+id/button40" android:onClick="buttonOnClick" style="@style/myButton" android:text="40"/>
     </TableRow>
 
     <LinearLayout

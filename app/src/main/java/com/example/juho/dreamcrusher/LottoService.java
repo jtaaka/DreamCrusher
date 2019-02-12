@@ -7,10 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.TreeSet;
 
 public class LottoService extends IntentService {
@@ -136,7 +134,7 @@ public class LottoService extends IntentService {
 
     public void addComputerLotto() {
         while (randomLotto.size() < 7) {
-            randomLotto.add((int) (Math.random() * ((39 - 1) + 1)) + 1);
+            randomLotto.add((int) (Math.random() * ((40 - 1) + 1)) + 1);
         }
     }
 
