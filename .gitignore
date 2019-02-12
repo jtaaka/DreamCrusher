@@ -88,3 +88,8 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# Android Studio project files
+.idea
+build
+import-summary.txt
