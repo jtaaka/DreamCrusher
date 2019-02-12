@@ -114,14 +114,6 @@ public class LottoService extends IntentService {
                     }
                 }
 
-                for (int i = 0; i < 7; i++) {
-                    Log.d("PLAYER", "" + playersLotto.get(i));
-                }
-
-                Log.d("COMPUTER", ""  + Arrays.toString(randomLotto.toArray()));
-                Log.d("SKILL LEVEL", "" + getSkillLevel());
-                Log.d("CORRECT num", "" + correctNumbers);
-
                 weeksPassed++;
                 yearsPassed = yearsPassed + 0.0191653649;   // 1 week = 0.0191653649 years
                 setYears(yearsPassed);
