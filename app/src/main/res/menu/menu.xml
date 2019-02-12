@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:title="+"
+        android:id="@+id/plus"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item android:title="-"
+        android:id="@+id/minus"
+        app:showAsAction="ifRoom">
+    </item>
+
+    <item android:id="@+id/level4"
+        android:title="@string/skill_level_4"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/level5"
+        android:title="@string/skill_level_5"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/level6"
+        android:title="@string/skill_level_6"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/level7"
+        android:title="@string/skill_level_7"
+        app:showAsAction="never"/>
+
+</menu>

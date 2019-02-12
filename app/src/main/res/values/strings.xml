@@ -1,0 +1,10 @@
+<resources>
+    <string name="_1">1</string>
+    <string name="i_feel_lucky">I feel lucky</string>
+    <string name="reset">Reset</string>
+    <string name="skill_level_4">Skill level 4</string>
+    <string name="skill_level_5">Skill level 5</string>
+    <string name="skill_level_6">Skill level 6</string>
+    <string name="skill_level_7">Skill level 7</string>
+    <string name="DreamCrusher">DreamCrusher</string>
+</resources>
