@@ -122,39 +122,30 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.level4:
-                skillLevel = 4;
-                toLottoService.putExtra("skillLevel", 4);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Skill level 4", Toast.LENGTH_SHORT).show();
+                setSkillLevel(4);
                 return true;
 
             case R.id.level5:
-                skillLevel = 5;
-                toLottoService.putExtra("skillLevel", 5);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Skill level 5", Toast.LENGTH_SHORT).show();
+                setSkillLevel(5);
                 return true;
 
             case R.id.level6:
-                skillLevel = 6;
-                toLottoService.putExtra("skillLevel", 6);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Skill level 6", Toast.LENGTH_SHORT).show();
+                setSkillLevel(6);
                 return true;
 
             case R.id.level7:
-                skillLevel = 7;
-                toLottoService.putExtra("skillLevel", 7);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Skill level 7", Toast.LENGTH_SHORT).show();
+                setSkillLevel(7);
                 return true;
         }
 
         return false;
+    }
+
+    public void setSkillLevel(int value) {
+        this.skillLevel = value;
+        toLottoService.putExtra("skillLevel", skillLevel);
+        manager.sendBroadcast(toLottoService);
+        Toast.makeText(this, "Get " + value + " correct numbers", Toast.LENGTH_LONG).show();
     }
 
     public void startGame(View view) {
