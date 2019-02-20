@@ -28,11 +28,10 @@ public class LottoService extends IntentService {
         playersLotto = new ArrayList<>();
         randomLotto = new TreeSet<>();
 
-        manager = LocalBroadcastManager.getInstance(this);
         broadCastIntent = new Intent("lotto");
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("lottoService"));
+        manager = LocalBroadcastManager.getInstance(this);
+        manager.registerReceiver(mMessageReceiver, new IntentFilter("lottoService"));
 
         setStop(false);
         setCalculationSpeed(2000);

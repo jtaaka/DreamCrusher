@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent toLottoService;
     private LocalBroadcastManager manager;
     private Button startButton;
+    private TextView timeTextView;
     private int skillLevel = 7;
 
     @Override
@@ -40,13 +41,16 @@ public class MainActivity extends AppCompatActivity {
         intent = new Intent(this, LottoService.class);
         toLottoService = new Intent("lottoService");
         manager = LocalBroadcastManager.getInstance(this);
+
+        timeTextView = findViewById(R.id.textView);
+
         startButton = findViewById(R.id.startButton);
         startButton.setEnabled(false);
 
         lottoNumbers = new TreeSet<>();
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,
-                new IntentFilter("lotto"));
+        manager = LocalBroadcastManager.getInstance(this);
+        manager.registerReceiver(mMessageReceiver, new IntentFilter("lotto"));
     }
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
@@ -60,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 userWonAlert();
             }
 
-            TextView textView = findViewById(R.id.textView);
-
             Serializable serializable = intent.getSerializableExtra("numbers");
             Object[] object = (Object[]) serializable;
 
@@ -69,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             if (object != null) {
                 computerLotto.addAll(Arrays.asList(object));
-                textView.setText(String.format("%.2f years (= %d weeks) have passed", years, weeks));
+                timeTextView.setText(String.format("%.2f years (= %d weeks) have passed", years, weeks));
             }
 
             animateButtons();
@@ -108,17 +110,11 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.plus:
-                toLottoService.putExtra("calculationSpeed", 10L);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Speed +", Toast.LENGTH_SHORT).show();
+                setCalculationSpeed(10L, "Speed increased");
                 return true;
 
             case R.id.minus:
-                toLottoService.putExtra("calculationSpeed", 3000L);
-                manager.sendBroadcast(toLottoService);
-
-                Toast.makeText(this, "Speed -", Toast.LENGTH_SHORT).show();
+                setCalculationSpeed(3000L, "Speed decreased");
                 return true;
 
             case R.id.level4:
@@ -141,11 +137,17 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
+    public void setCalculationSpeed(long value, String message) {
+        toLottoService.putExtra("calculationSpeed", value);
+        manager.sendBroadcast(toLottoService);
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
     public void setSkillLevel(int value) {
         this.skillLevel = value;
         toLottoService.putExtra("skillLevel", skillLevel);
         manager.sendBroadcast(toLottoService);
-        Toast.makeText(this, "Get " + value + " correct numbers", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Get " + value + " correct numbers", Toast.LENGTH_SHORT).show();
     }
 
     public void startGame(View view) {
