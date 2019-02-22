@@ -82,23 +82,31 @@
             android:layout_height="match_parent"
             android:layout_weight="10"
             android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:text=""/>
 
         <Button
-        android:id="@+id/startButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0"
-        android:onClick="startGame"
-        android:text="@string/i_feel_lucky"/>
+            android:id="@+id/startButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:layout_margin="5dp"
+            android:onClick="startGame"
+            android:textColor="@color/white"
+            android:text="@string/i_feel_lucky"
+            android:background="@drawable/my_button_background_selector"/>
 
         <Button
             android:id="@+id/reset"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:layout_margin="5dp"
             android:onClick="resetGame"
-            android:text="@string/reset"/>
+            android:textColor="@color/white"
+            android:text="@string/reset"
+            android:background="@drawable/reset_button_selector"/>
 
     </LinearLayout>
 

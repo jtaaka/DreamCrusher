@@ -10,6 +10,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
         manager = LocalBroadcastManager.getInstance(this);
         manager.registerReceiver(mMessageReceiver, new IntentFilter("lotto"));
+
+        Toast toast = Toast.makeText(this,"Select 7 numbers", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.FILL_HORIZONTAL | Gravity.TOP, 0, 0);
+        toast.show();
     }
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
@@ -71,7 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
             if (object != null) {
                 computerLotto.addAll(Arrays.asList(object));
-                timeTextView.setText(String.format("%.2f years (= %d weeks) have passed", years, weeks));
+                if (weeks != 1) {
+                    timeTextView.setText(String.format("%.2f years (= %d weeks) have passed", years, weeks));
+                } else {
+                    timeTextView.setText(String.format("%.2f years (= %d week) have passed", years, weeks));
+                }
             }
 
             animateButtons();
